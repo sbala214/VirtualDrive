@@ -1,0 +1,37 @@
+# Build results
+bin/
+obj/
+publish/
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build files
+*.exe
+*.dll
+*.pdb
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

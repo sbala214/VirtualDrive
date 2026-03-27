@@ -1,0 +1,15 @@
+<Solution Format="1.0">
+  <Project Path="VirtualDrive.Core\VirtualDrive.Core.csproj" />
+  <Project Path="VirtualDrive.Tests\VirtualDrive.Tests.csproj" />
+  <Project Path="VirtualDrive.Server\VirtualDrive.Server.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="VirtualDrive.Client.Abstractions\VirtualDrive.Client.Abstractions.csproj" />
+  <Project Path="VirtualDrive.Client.NamedPipes\VirtualDrive.Client.NamedPipes.csproj" />
+  <Project Path="VirtualDrive.Client.Http\VirtualDrive.Client.Http.csproj" />
+  <Folder Name="/Samples/">
+    <Project Path="Samples\VirtualDrive.ClientSample\VirtualDrive.ClientSample.csproj" />
+    <Project Path="Samples\VirtualDrive.ServerSample\VirtualDrive.ServerSample.csproj" />
+  </Folder>
+</Solution>

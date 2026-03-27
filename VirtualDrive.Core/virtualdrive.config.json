@@ -1,0 +1,10 @@
+{
+  "sectorAllocator": {
+    "sectorSizeBytes": 8192,
+    "maxCapacityBytes": 107374182400
+  },
+  "memoryBuffer": {
+    "segmentCount": 50,
+    "segmentSizeBytes": 2145386496
+  }
+}

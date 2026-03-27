@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyKeyFile>../VirtualDrive.Core/VirtualDrive.Core.snk</AssemblyKeyFile>
+    <Version>1.0.0</Version>
+    <Title>VirtualDrive.Server</Title>
+    <Description>Server host for VirtualDrive.Core supporting Named Pipes and HTTP/gRPC interprocess communication</Description>
+    <Authors>VirtualDrive</Authors>
+    <PackageProjectUrl>https://github.com/sbala214/VirtualDrive</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualDrive.Core\VirtualDrive.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>

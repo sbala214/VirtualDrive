@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyKeyFile>../VirtualDrive.Core/VirtualDrive.Core.snk</AssemblyKeyFile>
+    <Version>1.0.0</Version>
+    <Title>VirtualDrive.Client.Http</Title>
+    <Description>HTTP/REST client for network-accessible VirtualDrive server access</Description>
+    <Authors>VirtualDrive</Authors>
+    <PackageProjectUrl>https://github.com/sbala214/VirtualDrive</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualDrive.Client.Abstractions\VirtualDrive.Client.Abstractions.csproj" />
+    <ProjectReference Include="..\VirtualDrive.Server\VirtualDrive.Server.csproj" />
+  </ItemGroup>
+
+</Project>

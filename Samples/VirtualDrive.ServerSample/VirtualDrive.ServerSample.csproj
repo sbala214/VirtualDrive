@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Title>VirtualDrive.ServerSample</Title>
+    <Description>Sample console application demonstrating VirtualDrive server initialization and usage</Description>
+    <Authors>VirtualDrive</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\VirtualDrive.Server\VirtualDrive.Server.csproj" />
+    <ProjectReference Include="..\..\VirtualDrive.Core\VirtualDrive.Core.csproj" />
+  </ItemGroup>
+
+</Project>
