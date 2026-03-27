@@ -5,14 +5,28 @@
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- Strong Naming -->
     <SignAssembly>true</SignAssembly>
     <AssemblyKeyFile>../VirtualDrive.Core/VirtualDrive.Core.snk</AssemblyKeyFile>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>VirtualDrive.Server</PackageId>
     <Version>1.0.0</Version>
-    <Title>VirtualDrive.Server</Title>
-    <Description>Server host for VirtualDrive.Core supporting Named Pipes and HTTP/gRPC interprocess communication</Description>
-    <Authors>VirtualDrive</Authors>
+    <Authors>Balasubramanian</Authors>
+    <Title>VirtualDrive.Server - Virtual Filesystem Server</Title>
+    <Description>Server host for VirtualDrive.Core supporting Named Pipes and HTTP/gRPC interprocess communication. Enables local and network access to virtual filesystems.</Description>
     <PackageProjectUrl>https://github.com/sbala214/VirtualDrive</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/sbala214/VirtualDrive</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>virtual-filesystem;server;named-pipes;grpc;http;ipc</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
     <PackageReference Include="protobuf-net" Version="3.2.26" />
     <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />

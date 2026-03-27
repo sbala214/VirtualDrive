@@ -4,18 +4,36 @@
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- Strong Naming -->
     <SignAssembly>true</SignAssembly>
     <AssemblyKeyFile>../VirtualDrive.Core/VirtualDrive.Core.snk</AssemblyKeyFile>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>VirtualDrive.Client.Abstractions</PackageId>
     <Version>1.0.0</Version>
-    <Title>VirtualDrive.Client.Abstractions</Title>
-    <Description>Abstractions and interfaces for VirtualDrive client implementations</Description>
-    <Authors>VirtualDrive</Authors>
+    <Authors>Balasubramanian</Authors>
+    <Title>VirtualDrive.Client.Abstractions - Client Interfaces</Title>
+    <Description>Abstractions and interfaces for VirtualDrive client implementations. Provides transport layer abstractions for Named Pipes and HTTP/gRPC protocols.</Description>
     <PackageProjectUrl>https://github.com/sbala214/VirtualDrive</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/sbala214/VirtualDrive</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>virtual-filesystem;client;abstractions;transport</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\VirtualDrive.Server\VirtualDrive.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
   </ItemGroup>
 
 </Project>

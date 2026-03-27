@@ -4,19 +4,37 @@
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- Strong Naming -->
     <SignAssembly>true</SignAssembly>
     <AssemblyKeyFile>../VirtualDrive.Core/VirtualDrive.Core.snk</AssemblyKeyFile>
+    
+    <!-- NuGet Package Properties -->
+    <PackageId>VirtualDrive.Client.NamedPipes</PackageId>
     <Version>1.0.0</Version>
-    <Title>VirtualDrive.Client.NamedPipes</Title>
-    <Description>Named Pipes client for local/intranet VirtualDrive server access</Description>
-    <Authors>VirtualDrive</Authors>
+    <Authors>Balasubramanian</Authors>
+    <Title>VirtualDrive.Client.NamedPipes - Named Pipes Client</Title>
+    <Description>Named Pipes client for local/intranet VirtualDrive server access. Provides low-latency communication for same-machine or intranet scenarios.</Description>
     <PackageProjectUrl>https://github.com/sbala214/VirtualDrive</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/sbala214/VirtualDrive</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>virtual-filesystem;client;named-pipes;local;ipc</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\VirtualDrive.Client.Abstractions\VirtualDrive.Client.Abstractions.csproj" />
     <ProjectReference Include="..\VirtualDrive.Server\VirtualDrive.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
   </ItemGroup>
 
 </Project>

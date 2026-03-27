@@ -5,10 +5,12 @@
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Version>1.0.0</Version>
     <Title>VirtualDrive.CoreSamples</Title>
     <Description>Sample console application demonstrating VirtualDrive core functionality and virtual file system operations</Description>
-    <Authors>VirtualDrive</Authors>
+    <Authors>Balasubramanian</Authors>
   </PropertyGroup>
 
   <ItemGroup>
