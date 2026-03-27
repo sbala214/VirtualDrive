@@ -18,6 +18,10 @@ public class VirtualDriveService
     private readonly Dictionary<string, IVirtualDriveApi> _volumeApis;
     private readonly ReaderWriterLockSlim _lock = new();
 
+    /// <summary>
+    /// Initializes a new instance of the VirtualDriveService class.
+    /// </summary>
+    /// <param name="config">Memory buffer configuration. Uses default if null.</param>
     public VirtualDriveService(MemoryBufferConfiguration? config = null)
     {
         _api = config != null ? new VirtualDriveApi(config) : new VirtualDriveApi();
@@ -324,6 +328,9 @@ public class VirtualDriveService
         };
     }
 
+    /// <summary>
+    /// Releases all resources used by the service.
+    /// </summary>
     public void Dispose()
     {
         _lock?.Dispose();

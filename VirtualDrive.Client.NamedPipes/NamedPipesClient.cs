@@ -21,6 +21,10 @@ public class NamedPipesClient : ITransportClient
     private StreamWriter? _writer;
     private readonly object _lockObject = new();
 
+    /// <summary>
+    /// Initializes a new instance of the NamedPipesClient class.
+    /// </summary>
+    /// <param name="pipeName">The name of the named pipe to connect to (default: VirtualDrive.Server).</param>
     public NamedPipesClient(string pipeName = "VirtualDrive.Server")
     {
         _pipeName = pipeName;
@@ -79,6 +83,11 @@ public class NamedPipesClient : ITransportClient
 
     // ==================== Volume Operations ====================
 
+    /// <summary>
+    /// Creates a new virtual volume.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume to create.</param>
+    /// <param name="capacityMB">The capacity of the volume in megabytes.</param>
     public async Task CreateVolumeAsync(string volumeName, long capacityMB)
     {
         var request = new CreateVolumeRequest { VolumeName = volumeName, CapacityMB = capacityMB };
@@ -86,6 +95,10 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Deletes an existing virtual volume.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume to delete.</param>
     public async Task DeleteVolumeAsync(string volumeName)
     {
         var request = new DeleteVolumeRequest { VolumeName = volumeName };
@@ -93,6 +106,10 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Lists all existing virtual volumes.
+    /// </summary>
+    /// <returns>A list of volume information objects.</returns>
     public async Task<List<VolumeInfoDto>> ListVolumesAsync()
     {
         var request = new ListVolumesRequest();
@@ -110,6 +127,12 @@ public class NamedPipesClient : ITransportClient
 
     // ==================== File Operations ====================
 
+    /// <summary>
+    /// Writes data to a file.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <param name="data">The data to write to the file.</param>
     public async Task WriteFileAsync(string volumeName, string filePath, byte[] data)
     {
         var request = new WriteFileRequest { VolumeName = volumeName, FilePath = filePath, Data = data };
@@ -117,6 +140,12 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Reads the entire contents of a file.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <returns>The file contents as a byte array.</returns>
     public async Task<byte[]> ReadFileAsync(string volumeName, string filePath)
     {
         var request = new ReadFileRequest { VolumeName = volumeName, FilePath = filePath };
@@ -132,6 +161,14 @@ public class NamedPipesClient : ITransportClient
         return Array.Empty<byte>();
     }
 
+    /// <summary>
+    /// Reads a portion of a file starting at a specified offset.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <param name="offset">The byte offset to start reading from.</param>
+    /// <param name="length">The number of bytes to read.</param>
+    /// <returns>The requested portion of the file as a byte array.</returns>
     public async Task<byte[]> ReadFileAtAsync(string volumeName, string filePath, long offset, int length)
     {
         var request = new ReadFileAtRequest { VolumeName = volumeName, FilePath = filePath, Offset = offset, Length = length };
@@ -147,6 +184,13 @@ public class NamedPipesClient : ITransportClient
         return Array.Empty<byte>();
     }
 
+    /// <summary>
+    /// Writes data to a file starting at a specified offset.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <param name="data">The data to write.</param>
+    /// <param name="offset">The byte offset to start writing at.</param>
     public async Task WriteFileAtAsync(string volumeName, string filePath, byte[] data, long offset)
     {
         var request = new WriteFileAtRequest { VolumeName = volumeName, FilePath = filePath, Data = data, Offset = offset };
@@ -154,6 +198,11 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Deletes a file.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
     public async Task DeleteFileAsync(string volumeName, string filePath)
     {
         var request = new DeleteFileRequest { VolumeName = volumeName, FilePath = filePath };
@@ -161,6 +210,12 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Checks whether a file exists.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <returns>True if the file exists; otherwise false.</returns>
     public async Task<bool> FileExistsAsync(string volumeName, string filePath)
     {
         var response = new RpcResponse(); // Placeholder
@@ -168,6 +223,12 @@ public class NamedPipesClient : ITransportClient
         return false; // TODO: Implement
     }
 
+    /// <summary>
+    /// Retrieves metadata about a file.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the file.</param>
+    /// <param name="filePath">The path to the file within the volume.</param>
+    /// <returns>File information if found; otherwise null.</returns>
     public async Task<FileInfoDto?> GetFileInfoAsync(string volumeName, string filePath)
     {
         return null; // TODO: Implement
@@ -175,6 +236,11 @@ public class NamedPipesClient : ITransportClient
 
     // ==================== Directory Operations ====================
 
+    /// <summary>
+    /// Creates a new directory.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the directory.</param>
+    /// <param name="dirPath">The path to the directory to create.</param>
     public async Task CreateDirectoryAsync(string volumeName, string dirPath)
     {
         var request = new CreateDirectoryRequest { VolumeName = volumeName, DirectoryPath = dirPath };
@@ -182,12 +248,23 @@ public class NamedPipesClient : ITransportClient
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Deletes a directory.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the directory.</param>
+    /// <param name="dirPath">The path to the directory to delete.</param>
     public async Task DeleteDirectoryAsync(string volumeName, string dirPath)
     {
         var response = new RpcResponse(); // Placeholder
         ThrowIfError(response);
     }
 
+    /// <summary>
+    /// Lists the contents of a directory.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume containing the directory.</param>
+    /// <param name="dirPath">The path to the directory to list.</param>
+    /// <returns>A list of files in the directory.</returns>
     public async Task<List<FileInfoDto>> ListFilesAsync(string volumeName, string dirPath)
     {
         var request = new ListFilesRequest { VolumeName = volumeName, DirectoryPath = dirPath };
@@ -203,6 +280,11 @@ public class NamedPipesClient : ITransportClient
         return new();
     }
 
+    /// <summary>
+    /// Retrieves capacity and usage information for a volume.
+    /// </summary>
+    /// <param name="volumeName">The name of the volume.</param>
+    /// <returns>Capacity information if found; otherwise null.</returns>
     public async Task<CapacityInfoDto?> GetCapacityAsync(string volumeName)
     {
         var request = new GetCapacityRequest { VolumeName = volumeName };
@@ -229,6 +311,9 @@ public class NamedPipesClient : ITransportClient
         }
     }
 
+    /// <summary>
+    /// Releases all resources used by the client.
+    /// </summary>
     public async ValueTask DisposeAsync()
     {
         _reader?.Dispose();

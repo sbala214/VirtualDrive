@@ -18,6 +18,11 @@ public class VirtualDriveServer : IAsyncDisposable
     private GrpcHttpTransportServer? _grpcHttpServer;
     private CancellationTokenSource? _cts;
 
+    /// <summary>
+    /// Initializes a new instance of the VirtualDriveServer class.
+    /// </summary>
+    /// <param name="config">Transport configuration. Uses default if null.</param>
+    /// <param name="bufferConfig">Memory buffer configuration. Uses default if null.</param>
     public VirtualDriveServer(TransportConfiguration config, MemoryBufferConfiguration? bufferConfig = null)
     {
         _config = config ?? TransportConfigurationFactory.CreateDefault();
@@ -154,6 +159,9 @@ public class VirtualDriveServer : IAsyncDisposable
     /// </summary>
     public TransportConfiguration Configuration => _config;
 
+    /// <summary>
+    /// Stops the server and releases allocated resources asynchronously.
+    /// </summary>
     public async ValueTask DisposeAsync()
     {
         await StopAsync();

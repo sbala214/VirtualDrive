@@ -23,6 +23,11 @@ public class GrpcHttpTransportServer : IAsyncDisposable
     private WebApplication? _app;
     private Task? _runTask;
 
+    /// <summary>
+    /// Initializes a new instance of the GrpcHttpTransportServer class.
+    /// </summary>
+    /// <param name="service">The VirtualDrive service instance.</param>
+    /// <param name="config">Transport configuration settings.</param>
     public GrpcHttpTransportServer(VirtualDriveService service, TransportConfiguration config)
     {
         _service = service;
@@ -297,6 +302,9 @@ public class GrpcHttpTransportServer : IAsyncDisposable
         }
     }
 
+    /// <summary>
+    /// Stops the server and releases allocated resources asynchronously.
+    /// </summary>
     public async ValueTask DisposeAsync()
     {
         await StopAsync();

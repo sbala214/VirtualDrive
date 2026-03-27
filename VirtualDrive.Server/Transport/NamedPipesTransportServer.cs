@@ -19,8 +19,12 @@ public class NamedPipesTransportServer : IAsyncDisposable
     private readonly TransportConfiguration _config;
     private readonly CancellationTokenSource _cts;
     private Task? _acceptTask;
-    private NamedPipeServerStream? _serverStream;
 
+    /// <summary>
+    /// Initializes a new instance of the NamedPipesTransportServer class.
+    /// </summary>
+    /// <param name="service">The VirtualDrive service instance.</param>
+    /// <param name="config">Transport configuration settings.</param>
     public NamedPipesTransportServer(VirtualDriveService service, TransportConfiguration config)
     {
         _service = service;
@@ -253,6 +257,9 @@ public class NamedPipesTransportServer : IAsyncDisposable
         }
     }
 
+    /// <summary>
+    /// Stops the server and releases allocated resources asynchronously.
+    /// </summary>
     public async ValueTask DisposeAsync()
     {
         await StopAsync();

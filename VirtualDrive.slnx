@@ -1,15 +1,27 @@
 <Solution Format="1.0">
-  <Project Path="VirtualDrive.Core\VirtualDrive.Core.csproj" />
-  <Project Path="VirtualDrive.Tests\VirtualDrive.Tests.csproj" />
-  <Project Path="VirtualDrive.Server\VirtualDrive.Server.csproj" />
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="build-and-pack.bat" />
+    <File Path="build-and-pack.sh" />
+    <File Path="LICENSE.txt" />
+    <File Path="publish-to-nuget.bat" />
+    <File Path="publish-to-nuget.sh" />
   </Folder>
-  <Project Path="VirtualDrive.Client.Abstractions\VirtualDrive.Client.Abstractions.csproj" />
-  <Project Path="VirtualDrive.Client.NamedPipes\VirtualDrive.Client.NamedPipes.csproj" />
-  <Project Path="VirtualDrive.Client.Http\VirtualDrive.Client.Http.csproj" />
+  <Folder Name="/Docs/">
+    <File Path="Docs/CONFIGURATION.md" />
+    <File Path="Docs/README.md" />
+    <File Path="Docs/Server_Client_Interaction.md" />
+  </Folder>
   <Folder Name="/Samples/">
     <Project Path="Samples\VirtualDrive.ClientSample\VirtualDrive.ClientSample.csproj" />
     <Project Path="Samples\VirtualDrive.ServerSample\VirtualDrive.ServerSample.csproj" />
   </Folder>
+  <Project Path="VirtualDrive.Client.Abstractions\VirtualDrive.Client.Abstractions.csproj" />
+  <Project Path="VirtualDrive.Client.Http\VirtualDrive.Client.Http.csproj" />
+  <Project Path="VirtualDrive.Client.NamedPipes\VirtualDrive.Client.NamedPipes.csproj" />
+  <Project Path="VirtualDrive.Core\VirtualDrive.Core.csproj" />
+  <Project Path="VirtualDrive.Server\VirtualDrive.Server.csproj" />
+  <Project Path="VirtualDrive.Tests\VirtualDrive.Tests.csproj" />
 </Solution>
