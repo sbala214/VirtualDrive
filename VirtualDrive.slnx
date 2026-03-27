@@ -15,6 +15,7 @@
     <File Path="Docs/Server_Client_Interaction.md" />
   </Folder>
   <Folder Name="/Samples/">
+    <Project Path="Samples/VirtualDrive.CoreSamples/VirtualDrive.CoreSamples.csproj" />
     <Project Path="Samples\VirtualDrive.ClientSample\VirtualDrive.ClientSample.csproj" />
     <Project Path="Samples\VirtualDrive.ServerSample\VirtualDrive.ServerSample.csproj" />
   </Folder>

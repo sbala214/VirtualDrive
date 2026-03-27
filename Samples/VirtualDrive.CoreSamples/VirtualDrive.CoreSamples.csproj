@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Title>VirtualDrive.CoreSamples</Title>
+    <Description>Sample console application demonstrating VirtualDrive core functionality and virtual file system operations</Description>
+    <Authors>VirtualDrive</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\VirtualDrive.Core\VirtualDrive.Core.csproj" />
+  </ItemGroup>
+
+</Project>
